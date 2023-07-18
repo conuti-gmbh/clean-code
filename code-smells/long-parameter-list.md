@@ -20,7 +20,7 @@ class User
 }
 ```
 
-After checking the parameters, we can simply extract the address part into a new class (e.g [Value Object](https://enterprisecraftsmanship.com/posts/value-objects-explained/)) and pass the object as a parameter.
+After checking the parameters, we can simply extract the address part into a new class (e.g. [Value Object](https://enterprisecraftsmanship.com/posts/value-objects-explained/)) and pass the object as a parameter.
 
 ### After
 
