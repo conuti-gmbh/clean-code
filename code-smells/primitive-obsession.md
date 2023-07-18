@@ -27,7 +27,7 @@ After checking the properties, we can simply extract different pieces that belon
 ### After
 
 ```php
-class Address {
+class AddressVO {
    private string $street;
    private string $houseNumber;
    private int $zipCode;
@@ -36,7 +36,7 @@ class Address {
    private string $country;
 }
 
-class SocialSecurity {
+class SocialSecurityVO {
    private string $Ssn;
 }
 
@@ -44,8 +44,8 @@ class CheckingAccount {
    private int $accountNumber;
    private string $customerName;
    private string $email;
-   private Address $address;
-   private SocialSecurity $socialSecurity;
+   private AddressVO $address;
+   private SocialSecurityVO $socialSecurity;
    private DateTime $activeDate;
 }
 ```
