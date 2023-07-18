@@ -31,7 +31,7 @@ public function getCountryName(string $countryCode): string
         'ar' => 'Argentina',
     ];
     
-    if(!array_key_exists($countryCode, $countries)) {
+    if (!isset($countries[$countryCode])) {
         throw new InvalidArgumentException("Country code not valid");
     }
     
