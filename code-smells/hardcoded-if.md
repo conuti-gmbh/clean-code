@@ -38,3 +38,18 @@ public function getCountryName(string $countryCode): string
     return $countries[$countryCode];
 }
 ```
+
+or
+
+```php
+public function getCountryName(string $countryCode): string 
+{
+    return match($countryCode) {
+        'de' => 'Germany',
+        'fr' => 'France',
+        'ar' => 'Argentina',
+        default => throw new InvalidArgumentException('Country code not valid'),
+    };
+}
+```
+
