@@ -11,9 +11,9 @@ The **Strategy Pattern** is a design pattern that enables dynamic alteration of 
 
 ## Advantages
 
-* Modularity: Encourages modular code design.
-* Clean Code: Promotes clean and maintainable code architecture.
-* Adaptability: Allows for dynamic switching of algorithms at runtime.
+* **Modularity**: Encourages modular code design.
+* **Clean Code**: Promotes clean and maintainable code architecture.
+* **Adaptability**: Allows for dynamic switching of algorithms at runtime.
 
 ## Example
 
