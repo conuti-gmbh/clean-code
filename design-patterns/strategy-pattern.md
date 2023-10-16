@@ -11,9 +11,9 @@ The **Strategy Pattern** is a design pattern that enables dynamic alteration of 
 
 ## Advantages
 
-*Modularity: Encourages modular code design.
-*Clean Code: Promotes clean and maintainable code architecture.
-*Adaptability: Allows for dynamic switching of algorithms at runtime.
+* Modularity: Encourages modular code design.
+* Clean Code: Promotes clean and maintainable code architecture.
+* Adaptability: Allows for dynamic switching of algorithms at runtime.
 
 ## Example
 
@@ -42,7 +42,7 @@ class StandardShipping implements ShippingStrategy {
 
 class ExpressShipping implements ShippingStrategy {
     public function calculateCost(float $productPrice): float {
-        return 2 * 5 + 3;
+        return 5 + ($productPrice * 0.1) + 7;
     }
 }
 ```
