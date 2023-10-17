@@ -89,6 +89,94 @@ interface Dish
 
 class CapreseSalad implements Dish
 {
+    private string $name;
+    private string $ingredients;
+
+    public function __construct(string $name, string $ingredients)
+    {
+        $this->name = $name;
+        $this->ingredients = $ingredients;
+    }
+
+    public function serve(): string
+    {
+        return "Serve: $this->name, Ingredients: $this->ingredients";
+    }
+}
+
+class GrilledSalmon implements Dish
+{
+    private string $name;
+    private string $ingredients;
+
+    public function __construct(string $name, string $ingredients)
+    {
+        $this->name = $name;
+        $this->ingredients = $ingredients;
+    }
+
+    public function serve(): string
+    {
+        return "Serve: $this->name, Ingredients: $this->ingredients";
+    }
+}
+
+class DishFactory
+{
+    public function createDish(string $dishClass, string $name, string $ingredients): Dish
+    {
+        if (!class_exists($dishClass) || !in_array('Dish', class_implements($dishClass))) {
+            throw new InvalidArgumentException("Invalid dish class: $dishClass");
+        }
+
+        return new $dishClass($name, $ingredients);
+    }
+}
+
+class DishCreationClient
+{
+    private Dish $dish;
+
+    public function __construct(Dish $dish)
+    {
+        $this->dish = $dish;
+    }
+
+    public function createAndServeDish(): void
+    {
+        echo $this->dish->serve() . PHP_EOL;
+    }
+}
+
+// Client code using the Factory Pattern
+$factory = new DishFactory();
+
+// Create and serve Caprese Salad
+$capreseSalad = $factory->createDish(CapreseSalad::class, 'Caprese Salad', 'Tomato, mozzarella, basil');
+$clientForCapreseSalad = new DishCreationClient($capreseSalad);
+$clientForCapreseSalad->createAndServeDish();
+
+// Create and serve Grilled Salmon
+$grilledSalmon = $factory->createDish(GrilledSalmon::class, 'Grilled Salmon', 'Fresh grilled salmon with lemon');
+$clientForGrilledSalmon = new DishCreationClient($grilledSalmon);
+$clientForGrilledSalmon->createAndServeDish();
+
+```
+
+The previous code did not adhere to best practices, specifically violating the **Dependency Inversion Principle**. In the original design, high-level modules, such as `DishCreationClient`, were directly dependent on concrete implementations or low-level details, like the `Dish` class, which is not a recommended practice. 
+
+The improved version, however, aligns with best practices by ensuring that high-level modules depend on abstractions, exemplified by the `DishFactory`. This design adheres to all SOLID principles, promoting a more modular, extensible, and maintainable codebase.
+
+```php
+<?php
+
+interface Dish
+{
+    public function serve(): string;
+}
+
+class CapreseSalad implements Dish
+{
     public function __construct(
         private string $name,
         private string $ingredients
