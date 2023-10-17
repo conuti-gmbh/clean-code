@@ -107,3 +107,15 @@ class SomeCallerClass
 ```
 
 With this implementation, firstly we abstract the BMI calculation leaving only one place to change it if needed, and secondly we made it reusable for other classes.
+
+## Comparison with "Feature Envy"
+
+"Tell, Don't Ask" and "[Feature Envy](feature-envy.md)" are related concepts, and they both point to issues related to the design and organization of code. While they share some similarities, they address slightly different concerns.
+
+**Tell, Don't Ask:**
+- "Tell, Don't Ask" is a design principle that encourages you to tell objects what to do rather than asking them about their state and then deciding what to do. It promotes encapsulation and a more object-oriented approach. Instead of querying an object for its state and making decisions based on that state, you should tell the object to perform an action.
+
+**Feature Envy:**
+- Feature Envy specifically refers to a situation where a method in one class seems more interested in the data of another class rather than its own. It suggests that a method is making excessive use of the methods or properties of another class, possibly indicating a better location for the method.
+
+While addressing Feature Envy may involve moving methods closer to the data they operate on (similar to "Tell, Don't Ask"), the primary emphasis of "Tell, Don't Ask" is on the overall design philosophy, encouraging you to encapsulate behavior within objects rather than extracting data and making decisions externally.
