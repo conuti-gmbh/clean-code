@@ -84,6 +84,7 @@ class Item
 
     public function calculateTotalWithTax(TaxCalculator $taxCalculator): float {
         $tax = $taxCalculator->calculateTax($this->getPrice());
+        
         return $this->getPrice() + $tax;
     }
 }
