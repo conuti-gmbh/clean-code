@@ -89,35 +89,40 @@ interface Dish
 
 class CapreseSalad implements Dish
 {
-    private string $name;
-    private string $ingredients;
-
-    public function __construct(string $name, string $ingredients)
-    {
-        $this->name = $name;
-        $this->ingredients = $ingredients;
-    }
+    public function __construct(
+        private string $name,
+        private string $ingredients
+    ) {}
 
     public function serve(): string
     {
-        return "Serve: $this->name, Ingredients: $this->ingredients";
+        return sprintf("Serve %s, Ingredients: %s", $this->name, $this->ingredients);
     }
 }
 
 class GrilledSalmon implements Dish
 {
-    private string $name;
-    private string $ingredients;
-
-    public function __construct(string $name, string $ingredients)
-    {
-        $this->name = $name;
-        $this->ingredients = $ingredients;
-    }
+    public function __construct(
+        private string $name,
+        private string $ingredients
+    ) {}
 
     public function serve(): string
     {
-        return "Serve: $this->name, Ingredients: $this->ingredients";
+        return sprintf("Serve %s, Ingredients: %s", $this->name, $this->ingredients);
+    }
+}
+
+class ChocolateMousse implements Dish
+{
+    public function __construct(
+        private string $name,
+        private string $ingredients
+    ) {}
+
+    public function serve(): string
+    {
+        return sprintf("Serve %s, Ingredients: %s", $this->name, $this->ingredients);
     }
 }
 
@@ -135,11 +140,8 @@ class DishFactory
 
 class DishCreationClient
 {
-    private Dish $dish;
-
-    public function __construct(Dish $dish)
+    public function __construct(private Dish $dish)
     {
-        $this->dish = $dish;
     }
 
     public function createAndServeDish(): void
@@ -161,6 +163,10 @@ $grilledSalmon = $factory->createDish(GrilledSalmon::class, 'Grilled Salmon', 'F
 $clientForGrilledSalmon = new DishCreationClient($grilledSalmon);
 $clientForGrilledSalmon->createAndServeDish();
 
+// Create and serve Chocolate Mousse
+$chocolateMousse = $factory->createDish(ChocolateMousse::class, 'Chocolate Mousse', 'Rich chocolate mousse');
+$clientForChocolateMousse = new DishCreationClient($chocolateMousse);
+$clientForChocolateMousse->createAndServeDish();
 ```
 
 The previous code did not adhere to best practices, specifically violating the **Dependency Inversion Principle**. In the original design, high-level modules, such as `DishCreationClient`, were directly dependent on concrete implementations or low-level details, like the `Dish` class, which is not a recommended practice. 
