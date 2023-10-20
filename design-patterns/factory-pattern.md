@@ -332,8 +332,6 @@ Use the Builder pattern when:
 2. **Fluent Interface:**
 - You want to create objects with a fluent interface, allowing for a clear and readable step-by-step construction process.
 
-Example in PHP 8:
-
 ```php
 class Product
 {
