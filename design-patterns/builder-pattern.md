@@ -176,3 +176,113 @@ $officeComputer->display();
 ```
 
 This example demonstrates the Builder Pattern's application in constructing Computer objects with varying configurations, enhancing flexibility, readability, and maintainability in the codebase.
+
+## Builder pattern or Factory pattern?
+
+There are cases where we need to decide whether to use the Factory or Builder pattern.
+
+### Factory Pattern Example:
+
+Use the Factory pattern when:
+
+1. **Object Creation is Simple:**
+  - The creation of objects is relatively straightforward, and there are no complex configuration steps.
+
+2. **Common Interface for Object Creation:**
+  - You want to encapsulate the object creation logic and provide a common interface for **creating different types of objects**.
+
+```php
+class Product
+{
+    public function __construct(
+        private string $name, 
+        private float $price
+    ) {}
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+}
+
+class ProductFactory
+{
+    public static function createProduct(string $name, float $price): Product
+    {
+        return new Product($name, $price);
+    }
+}
+
+// Usage
+$product = ProductFactory::createProduct('Example Product', 29.99);
+```
+
+### Builder Pattern Example:
+
+Use the Builder pattern when:
+
+1. **Complex Object Construction:**
+  - The construction of objects is complex, involves multiple steps, or requires **optional and customizable features**.
+
+2. **Fluent Interface:**
+  - You want to create objects with a fluent interface, allowing for a clear and readable step-by-step construction process.
+
+Example in PHP 8:
+
+```php
+class Product
+{
+    public function __construct(
+        private string $name, 
+        private float $price
+    ) {}
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+}
+
+class ProductBuilder
+{
+    private string $name;
+    private float $price;
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+        
+        return $this;
+    }
+
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
+        
+        return $this;
+    }
+
+    public function build(): Product
+    {
+        return new Product($this->name, $this->price);
+    }
+}
+
+// Usage
+$product = (new ProductBuilder())
+    ->setName('Example Product')
+    ->setPrice(29.99)
+    ->build();
+```
+
+In summary, choose the Factory pattern when you have a simple object creation process and want a common interface. Choose the Builder pattern when the object construction is complex, involves multiple steps, or requires customization with a fluent interface.
