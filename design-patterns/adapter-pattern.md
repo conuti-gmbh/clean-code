@@ -4,7 +4,7 @@
 
 The **Adapter Pattern** is a structural design pattern that allows the interface of an existing class to be used as another interface. It enables incompatible interfaces to work together, providing a bridge between them.
 
-## Where it is Used?
+## Where is it Used?
 
 - **Legacy Code Integration:** When you need to incorporate existing classes with incompatible interfaces into new systems.
 
