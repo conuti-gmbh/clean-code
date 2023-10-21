@@ -98,7 +98,7 @@ Here's an example of the Observer pattern in a Symfony context using tagged serv
 # config/services.yaml
 _instanceof:
   App\Observer\NewsObserverInterface:
-    tags: ['qpp.news_observer']
+    tags: ['app.news_observer']
     lazy: true
 
 services:
