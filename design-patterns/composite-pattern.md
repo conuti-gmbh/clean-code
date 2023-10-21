@@ -2,7 +2,7 @@
 
 ## What is it?
 
-The Composite Pattern is a structural design pattern that enables clients to treat individual objects and compositions of objects uniformly. It allows you to compose objects into tree structures to represent part-whole hierarchies. Clients can then work with individual objects or compositions without needing to distinguish between them.
+The **Composite Pattern** is a structural design pattern that enables clients to treat individual objects and compositions of objects uniformly. It allows you to compose objects into tree structures to represent part-whole hierarchies. Clients can then work with individual objects or compositions without needing to distinguish between them.
 
 ## Where is it Used?
 
@@ -46,10 +46,10 @@ The bad code example violates several principles of good software design, and he
 2. **Inflexibility:**
     - The code does not easily support the execution of a group of tasks. If you want to execute a set of tasks as a single unit, the code lacks a structure to accommodate this.
 
-3**Limited Scalability:**
+3. **Limited Scalability:**
     - Adding new tasks or modifying the execution logic would require changes to the client code, making the system less scalable and more prone to errors.
 
-4**No Composition:**
+4. **No Composition:**
     - There's no concept of composing tasks into a larger structure. The client code has to explicitly manage each task individually, leading to inflexible code.
 
 In summary, the bad code example lacks abstraction, flexibility, and scalability. It does not adhere to fundamental principles of object-oriented design, making it harder to maintain and extend. 
