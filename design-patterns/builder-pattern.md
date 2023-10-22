@@ -4,13 +4,13 @@
 
 The Builder Pattern is a creational design pattern that facilitates the construction of complex objects by separating the construction process from the actual representation. It provides a **step-by-step approach to building an object**, allowing the construction of various representations with the same construction process.
 
-## Where is it Used?
+## Where is it used?
 
 - **Complex Object Construction:** The Builder Pattern is particularly useful when creating objects with many configuration options or complex initialization steps.
 
 - **Variability in Object Configuration:** It is employed when an object's configuration can result in different representations, and there's a need for flexibility without modifying the client code.
 
-## Advantages:
+## Advantages
 
 - **Flexible Object Construction:**
     - Allows the construction of diverse objects using the same building process.
@@ -22,7 +22,7 @@ The Builder Pattern is a creational design pattern that facilitates the construc
 - **Configurability:**
     - Provides a convenient way to configure objects with numerous optional parameters.
 
-## Example:
+## Example
 
 Consider the example of constructing a `Computer` object in PHP.
 

@@ -4,11 +4,11 @@
 
 The **Abstract Factory Pattern** is a design pattern used in object-oriented programming. It falls under the category of creational patterns and provides an interface for creating families of related or dependent objects without specifying their concrete classes.
 
-## Where is it Used?
+## Where is it used?
 
 The Abstract Factory Pattern is employed in scenarios where a system needs to be independent of how its objects are created, composed, and represented. It is especially useful in situations where multiple families of related products exist, and the system needs to be configured with one of these families.
 
-## Advantages:
+## Advantages
 
 - **Abstraction of Object Creation:**
     - Separates the client code from the actual creation of objects, promoting a high level of abstraction.

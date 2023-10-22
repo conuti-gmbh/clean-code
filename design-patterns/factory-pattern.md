@@ -4,7 +4,7 @@
 
 The **Factory Pattern** is a creational design pattern widely employed in software development to encapsulate the process of creating objects. It introduces an interface for creating objects within a superclass while allowing subclasses to alter the type of objects that will be created. This enhances code flexibility, maintainability, and scalability.
 
-## Where is it Used?
+## Where is it used?
 
 - **Object Creation Decoupling:** It is particularly useful when a system needs to be independent of its object creation, allowing for flexibility in choosing object types.
 

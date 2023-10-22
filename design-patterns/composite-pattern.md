@@ -4,7 +4,7 @@
 
 The **Composite Pattern** is a structural design pattern that enables clients to treat individual objects and compositions of objects uniformly. It allows you to compose objects into tree structures to represent part-whole hierarchies. Clients can then work with individual objects or compositions without needing to distinguish between them.
 
-## Where is it Used?
+## Where is it used?
 
 The Composite Pattern is commonly used in scenarios where you have a hierarchy of objects and you want clients to treat individual objects and compositions uniformly. It is especially useful when dealing with tree structures, such as representing graphic shapes, document structures, or organizational hierarchies.
 

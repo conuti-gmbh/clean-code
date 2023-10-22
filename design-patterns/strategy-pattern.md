@@ -4,7 +4,7 @@
 
 The **Strategy Pattern** is a design pattern that enables dynamic alteration of an object's behavior by encapsulating interchangeable algorithms.
 
-## Where is it Used?
+## Where is it used?
 
 * Ideal for scenarios where algorithms vary independently of their context.
 * Commonly applied in areas such as algorithm selection, sorting strategies, and behavioral variations.
