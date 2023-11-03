@@ -139,7 +139,7 @@ class ComputerBuilder
     }
 }
 
-class ComputerManufacturer 
+interface ComputerManufacturer 
 {
     public function create(): Computer;
 } 
