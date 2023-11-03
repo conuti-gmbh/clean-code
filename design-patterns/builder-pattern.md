@@ -141,19 +141,27 @@ class ComputerBuilder
 
 class ComputerManufacturer 
 {
-    public function __construct(private ComputerBuilder $computerBuilder) 
-    {
-    }
+    public function create(): Computer;
+} 
 
-    public function createGamingComputer(): Computer {
+class GamingComputerManufacturer implements ComputerManufacturer
+{
+    public function __construct(private ComputerBuilder $computerBuilder) {}
+
+    public function create(): Computer {
         return $this->computerBuilder
             ->setProcessor("Intel Core i7")
             ->setRam("16 GB")
             ->setHardDrive("1 TB SSD")
             ->build();
     }
+}
 
-    public function createOfficeComputer(): Computer {
+class OfficeComputerManufacturer implements ComputerManufacturer
+{
+    public function __construct(private ComputerBuilder $computerBuilder) {}
+
+    public function create(): Computer {
         return $this->computerBuilder
             ->setProcessor("Intel Core i5")
             ->setRam("8 GB")
@@ -164,14 +172,13 @@ class ComputerManufacturer
 
 // Client code
 $computerBuilder = new ComputerBuilder();
-$manufacturer = new ComputerManufacturer($computerBuilder);
 
-$gamingComputer = $manufacturer->createGamingComputer();
-echo "Gaming Computer created: ";
+$manufacturer = new GamingComputerManufacturer($computerBuilder);
+$gamingComputer = $manufacturer->create();
 $gamingComputer->display();
 
-$officeComputer = $manufacturer->createOfficeComputer();
-echo "Office Computer created: ";
+$manufacturer = new OfficeComputerManufacturer($computerBuilder);
+$officeComputer = $manufacturer->create();
 $officeComputer->display();
 ```
 
